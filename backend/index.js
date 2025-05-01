@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
-const cors = require("cors");
 const port = process.env.PORT || 4000;
+const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
@@ -17,6 +17,11 @@ mongoose.connect(process.env.mongodb_url).then(() => {
 }).catch((err) => {
   console.log("MongoDB Connection Error: ", err);
 });
+
+app.use(cors({
+  origin: ["http://localhost:3000", "https://your-frontend.vercel.app"],
+  credentials: true // if using cookies or auth headers
+}));
 
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
@@ -66,6 +71,7 @@ const Users = mongoose.model("Users", {
   cartData: { type: Object },
   date: { type: Date, default: Date.now() },
 });
+
 
 
 // Schema for creating Product

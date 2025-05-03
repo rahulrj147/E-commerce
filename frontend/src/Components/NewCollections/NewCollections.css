@@ -1,26 +1,68 @@
-.new-collections{
+.new-collections {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-   margin-bottom: 100px;
-}
-.new-collections h1{
-    color: #171717;
-    font-size: 40px;
-    font-weight: 600;
-}
-.new-collections hr {
-    width: 150px;
-    height: 4px;
-    border-radius: 10px;
-    background: #252525;
-  }
-.collections{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 60px auto;
-    gap: 30px;
+    gap: 1rem; /* using rem for better responsiveness */
     max-width: 1280px;
+    margin: auto;
+    padding: 1rem; /* margin-bottom for better spacing */
+}
+
+.new-collections h1 {
+    color: #171717;
+    font-size: 2.5rem; /* 40px to rem */
+    font-weight: 600;
+    text-align: center; /* centered title */
+}
+
+.new-collections hr {
+    width: 10rem; /* using rem for responsiveness */
+    height: 0.25rem; /* smaller height for better appearance */
+    border-radius: 0.625rem; /* 10px to rem */
+    background: #252525;
+}
+
+.collections {
+    margin-top: 2.5rem; /* using rem for consistency */
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping items when space is insufficient */
+    gap: 1.5rem; /* adjusted gap for better spacing */
+    justify-content: center;
+}
+
+/* Media Query for Tablets and Small Screens */
+@media (max-width: 800px) {
+    .new-collections h1 {
+        font-size: 2rem; /* 30px to rem */
+    }
+    .new-collections hr {
+        width: 8rem; /* 80px to rem */
+        height: 0.25rem; /* consistent with previous */
+    }
+    .collections {
+        gap: 1.5rem; /* reduced gap for mobile view */
+    }
+    .collections {
+        flex-direction: column; /* stack items vertically on small screens */
+        align-items: center; /* center items on small screens */
+    }
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 600px) {
+    .new-collections h1 {
+        font-size: 1.5rem; /* 24px for smaller devices */
+        padding: 0 1rem; /* added padding for smaller screens */
+    }
+
+    .new-collections hr {
+        width: 6rem; /* further reduced size */
+    }
+
+    .collections {
+        gap: 1rem; /* further reduced gap for compact view */
+        flex-direction: column; /* stacked layout for mobile */
+        align-items: center; 
+        width: 200%;/* center the items */
+    }
 }
